@@ -4,8 +4,8 @@
 ## - rename the used ports (in each line, after get_ports) according to the top level signal names in the project
 
 ## Clock signal 12 MHz
-set_property -dict { PACKAGE_PIN L17   IOSTANDARD LVCMOS33 } [get_ports { clk }]; #IO_L12P_T1_MRCC_14 Sch=gclk
-create_clock -add -name sys_clk_pin -period 83.33 -waveform {0 41.66} [get_ports {clk}];
+set_property -dict { PACKAGE_PIN L17   IOSTANDARD LVCMOS33 } [get_ports { clkIn12MHz }]; #IO_L12P_T1_MRCC_14 Sch=gclk
+create_clock -add -name sys_clk_pin -period 83.33 -waveform {0 41.66} [get_ports {clkIn12MHz}];
 
 ## Pmod Header JA
 #set_property -dict { PACKAGE_PIN G17   IOSTANDARD LVCMOS33 } [get_ports { mosi }]; #IO_L5N_T0_D07_14 Sch=ja[1]
@@ -14,9 +14,8 @@ create_clock -add -name sys_clk_pin -period 83.33 -waveform {0 41.66} [get_ports
 #set_property -dict { PACKAGE_PIN L18   IOSTANDARD LVCMOS33 } [get_ports { ss }]; #IO_L8P_T1_D11_14 Sch=ja[4]
 #set_property -dict { PACKAGE_PIN H17   IOSTANDARD LVCMOS33 } [get_ports { int }]; #IO_L5P_T0_D06_14 Sch=ja[7]
 #set_property -dict { PACKAGE_PIN H19   IOSTANDARD LVCMOS33 } [get_ports { uart_tx }]; #IO_L4P_T0_D04_14 Sch=ja[8]
-#set_property -dict { PACKAGE_PIN J19   IOSTANDARD LVCMOS33 } [get_ports { uart_rx }]; #IO_L6N_T0_D08_VREF_14 Sch=ja[9]
-#set_property -dict { PACKAGE_PIN K18   IOSTANDARD LVCMOS33 } [get_ports { uart_tx }]; #IO_L8N_T1_D12_14 Sch=ja[10]
-
+set_property -dict { PACKAGE_PIN J19   IOSTANDARD LVCMOS33 } [get_ports { uartRx }]; #IO_L6N_T0_D08_VREF_14 Sch=ja[9]
+set_property -dict { PACKAGE_PIN K18   IOSTANDARD LVCMOS33 } [get_ports { uartTx }]; #IO_L8N_T1_D12_14 Sch=ja[10]
 
 ## LEDs
 #set_property -dict { PACKAGE_PIN A17   IOSTANDARD LVCMOS33 } [get_ports { led[0] }]; #IO_L12N_T1_MRCC_16 Sch=led[1]
